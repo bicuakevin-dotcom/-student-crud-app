@@ -1,3 +1,17 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --card-2: #273449;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #334155;
+    --accent: #14b8a6;
+    --accent-dark: #0d9488;
+    --edit: #f59e0b;
+    --delete: #ef4444;
+    --cancel: #64748b;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,10 +19,12 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-    padding: 30px;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background: radial-gradient(circle at top, #1e293b 0%, var(--bg) 60%);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 30px 16px;
 }
 
 .container {
@@ -19,109 +35,165 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #2c3e50;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 4px;
+    background: var(--accent);
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #34495e;
+    font-size: 1.3rem;
+    color: var(--accent);
 }
 
 /* Form Section */
 .form-container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
+    background-color: var(--card);
+    padding: 28px;
+    border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 6px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
 
 .form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
     font-size: 15px;
+    background-color: var(--card-2);
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #64748b;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.25);
 }
 
 /* Buttons */
 button {
-    padding: 10px 18px;
+    padding: 11px 22px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
-    background-color: #3498db;
-    color: white;
-    margin-right: 5px;
+    font-weight: 600;
+    background-color: var(--accent);
+    color: #04201d;
+    margin-right: 6px;
+    transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s;
 }
 
 button:hover {
-    opacity: 0.9;
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .cancel-button {
-    background-color: #7f8c8d;
+    background-color: var(--cancel);
+    color: #ffffff;
+}
+
+.cancel-button:hover {
+    background-color: #475569;
 }
 
 /* Message */
 #message {
     margin-top: 15px;
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--accent);
 }
 
 /* Records Section */
 .records-container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--card);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 th,
 td {
-    padding: 12px;
+    padding: 14px 16px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border);
 }
 
 th {
-    background-color: #34495e;
-    color: white;
+    background-color: var(--accent-dark);
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 
-tr:hover {
-    background-color: #f5f5f5;
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+tr:hover td {
+    background-color: rgba(20, 184, 166, 0.12);
 }
 
 /* Action buttons */
 .edit-button {
-    background-color: #f39c12;
+    background-color: var(--edit);
+    color: #1f1300;
+    padding: 8px 16px;
+}
+
+.edit-button:hover {
+    background-color: #d97706;
 }
 
 .delete-button {
-    background-color: #e74c3c;
+    background-color: var(--delete);
+    color: #ffffff;
+    padding: 8px 16px;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
 }
 
 /* Mobile */
@@ -130,8 +202,17 @@ tr:hover {
         padding: 15px;
     }
 
+    h1 {
+        font-size: 1.6rem;
+    }
+
     .container {
         width: 100%;
+    }
+
+    .form-container,
+    .records-container {
+        padding: 18px;
     }
 
     table {
